@@ -1,8 +1,38 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.navbar {
+  border-radius: 0px !important;
+}
+
+
+.main-page {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main-page>h3,.main-page>h4 {
+  font-weight: bold;
+}
+
+
+.row-list-group{
+  margin-top:50px;
+}
+
+.list-group {
+  align-items:center;
+}
+
+
+/* createpoll */
+.createpoll>a,.createpoll>a:hover{
+  color:white;
+  text-decoration: none;
 }

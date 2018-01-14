@@ -5,9 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
+var mongoose = require('mongoose');
+var passport = require('passport');
 
+const passportSetup = require('./config/passport-setup');
 var index = require('./routes/index');
-var users = require('./routes/users');
+var vote = require('./routes/vote');
+var user = require('./routes/user');
+var auth = require('./routes/auth');
 
 var app = express();
 
@@ -16,7 +21,13 @@ var app = express();
 app.engine('.hbs', exphbs({ defaultLayout: 'main',extname : '.hbs' }));
 app.set('view engine', '.hbs');
 
+app.use(passport.initialize());
+app.use(passport.session());
 
+//connect to md
+mongoose.connect('mongodb://localhost/', { useMongoClient: true } , ()=>{
+  console.log('connected to mongoose');
+});
 
 
 // uncomment after placing your favicon in /public
@@ -28,7 +39,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/vote', vote);
+app.use('/user',user);
+app.use('/auth',auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

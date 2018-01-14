@@ -1,0 +1,90 @@
+<head>
+  <style>
+    canvas {
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="canvas-holder" style="width:40%">
+    <canvas id="chart-area" />
+  </div>
+
+
+
+    <h2>I would Like to Vote For</h2>
+  <div class="btn-group" role="group">
+
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    choose an option
+    <span class="caret"></span>
+  </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Dropdown link</a></li>
+      <li><a href="#">Dropdown link</a></li>
+    </ul>
+  </div>
+  </div>
+
+     <button type="button" class="btn btn-primary">Submit</button>
+
+
+
+  <script>
+    var randomScalingFactor = function() {
+      return Math.round(Math.random() * 100);
+    };
+
+    var config = {
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: [
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+          ],
+          backgroundColor: [
+            'red',
+            'orange',
+            'yellow',
+            'green',
+            'blue',
+          ],
+          label: 'Dataset 1'
+        }],
+        labels: [
+          "Red",
+          "Orange",
+          "Yellow",
+          "Green",
+          "Blue"
+        ]
+      },
+      options: {
+        responsive: true,
+        legend: {
+          position: 'top',
+        },
+        title: {
+          display: true,
+          text: 'Chart.js Doughnut Chart'
+        },
+        animation: {
+          animateScale: true,
+          animateRotate: true
+        }
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById("chart-area").getContext("2d");
+      window.myDoughnut = new Chart(ctx, config);
+    };
+  </script>
+</body>
