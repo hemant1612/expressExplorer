@@ -1,42 +1,45 @@
-const key = require('./key');
 const passport = require('passport');
-const GithubStrategy = require('passport-github').Strategy;
-const voter = require('../Model/user-model.js');
+const GoogleStrategy = require('passport-google-oauth20');
+const keys = require('./key');
+const User = require('../Model/user-model');
 
-passport.serializeUser((user, done) => {
+passport.serializeUser((user,done)=>{
   //put it in cookie
-  done(null, user.id);
+  done(null,user.id);
 });
 
+
 //in cookie we have id
-passport.deserializeUser((id, done) => {
+passport.deserializeUser((id,done)=> {
   User.findById(id).then((user) => {
-    done(null, user);
+    done(null,user);
   });
 });
 
-passport.use(new GithubStrategy({
-  clientID: key.github.clientID,
-  clientSecret: key.github.clientSecret,
-  callbackURL: "http://localhost:3000/auth/github/redirect"
+passport.use(new GoogleStrategy({
+  //options for GoogleStrategy
+  callbackURL: '/auth/google/redirect',
+  clientID: keys.google.clientID,
+  clientSecret: keys.google.clientSecret
 }, (accessToken, refreshToken, profile, done) => {
-  //console.log(profile.displayName,profile.id,profile.profileUrl);
-  //  done(null,profile);
-  voter.findOne({
-    'id': profile.id
-  }, (err, user) => {
-    if (user) {
-      done(null, user)
-    } else {
+  //callback function
+  //console.log(profile);
 
-      new voter({'id': profile.id, 'url': profile.profileUrl, 'name': profile.displayName}).save((user, err) => {
-        if (err) 
-          throw err;
-        else
-          console.log('saved');
-        done(null, user)
+  //check if user already exists in the db
+  User.findOne({googleId: profile.id}).then((currentUser) => {
+    if (currentUser) {
+      //already user in the db
+      done(null,currentUser);
+    }
+    else
+    {
+      new User({
+        username: profile.displayName, googleId: profile.id}).save().then((newUser) => {
+        console.log('new user created!')
+        done(null,newUser);
       })
     }
   })
+})
 
-}))
+)

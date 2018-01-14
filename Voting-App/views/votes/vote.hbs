@@ -11,7 +11,7 @@
       <option>5</option>
     </select>
 
-        <button type="button" class="btn btn-default" style="margin-top:10px;width:265px">Submit</button>
+        <button type="button" class="btn btn-default" style="margin-top:10px;width:265px">submit</button>
       </div>
       <div class="col-md-9">
         <div id="canvas-holder">
@@ -33,26 +33,17 @@
         datasets: [{
           data: [
             randomScalingFactor(),
-            randomScalingFactor(),
-            randomScalingFactor(),
-            randomScalingFactor(),
-            randomScalingFactor(),
+            randomScalingFactor()
           ],
           backgroundColor: [
-            'red',
-            'orange',
-            'yellow',
-            'green',
-            'blue',
+            'rgb(119,125,122)',
+            'rgb(222,222,222)'
           ],
           label: 'Dataset 1'
         }],
         labels: [
-          "Red",
-          "Orange",
-          "Yellow",
-          "Green",
-          "Blue"
+          'rgb(119,125,122)',
+          'rgb(222,222,222)'
         ]
       },
       options: {

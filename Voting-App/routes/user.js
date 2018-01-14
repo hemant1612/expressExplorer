@@ -2,13 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/mypolls', function(req, res, next) {
+router.get('/', function(req, res, next) {
   //fetch this data from db
-  res.render('polls/mypolls.hbs');
+  //res.end(req.user)
+  res.render('polls/mypolls', {user: req.user});
 });
 
 
-router.get('/createpoll', function(req, res, next) {
+router.get('/create', function(req, res, next) {
   //fetch this data from db
   res.render('polls/createpoll.hbs');
 });

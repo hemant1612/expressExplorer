@@ -1,7 +1,7 @@
 module.exports = {
-  github: {
-    clientID: 'de341b4774c6c3a6f951',
-    clientSecret:'405ac3ea9297ff63f60ccaebeb9a373e5e93f907'
+  google: {
+    clientID: '884066935755-vtl4ac483055vff3vklunf3e9ca6de85.apps.googleusercontent.com',
+    clientSecret:'mnYvtP760UrM05QBMAPz3mjO'
   },
   session:{
     cookieKey:'hellowrold!'
