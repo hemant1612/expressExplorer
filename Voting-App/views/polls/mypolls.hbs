@@ -1,6 +1,19 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12" style="text-align:center;padding:30px">
+      <h2>Hello {{ user.name }}</h2>
+      <h1>Here are your polls </h1>
+      <h4>OR</h4>
+      <h2>Want to create more !!!</h2>
+      <button class="btn btn-default createpoll"> <a href="/user/createpoll" style="text-decoration:none">  Create a New Poll </a></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="list-group">
+        <a href="/vote" class="list-group-item">Dapibus ac facilisis in</a>
+      </div>
+    </div>
+  </div>
 
-<h2>Hello {{ user.name }}</h2>
-<h1>Here are your polls </h1>
-<h2>Want to create more !!!</h2>
- <h3>OR</h3>
-<button class="btn btn-primary createpoll"> <a href="/user/createpoll">  Create a New Poll </a></button>
+</div>

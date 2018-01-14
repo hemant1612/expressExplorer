@@ -1,7 +1,10 @@
 body {
   padding: 0px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Arial", sans-serif;
+  color:#555 !important;
 }
+
+.container-fluid { width:1380px !important; }
 
 a {
   color: #00B7FF;
@@ -9,30 +12,4 @@ a {
 
 .navbar {
   border-radius: 0px !important;
-}
-
-
-.main-page {
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-}
-.main-page>h3,.main-page>h4 {
-  font-weight: bold;
-}
-
-
-.row-list-group{
-  margin-top:50px;
-}
-
-.list-group {
-  align-items:center;
-}
-
-
-/* createpoll */
-.createpoll>a,.createpoll>a:hover{
-  color:white;
-  text-decoration: none;
 }

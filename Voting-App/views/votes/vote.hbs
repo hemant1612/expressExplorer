@@ -1,36 +1,25 @@
-<head>
-  <style>
-    canvas {
-      -moz-user-select: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
-    }
-  </style>
-</head>
+  <div class="container-fluid" style="padding:0px 70px 70px 70px;">
+    <div class="row" style="background:#eee;padding:50px">
 
-<body>
-  <div id="canvas-holder" style="width:40%">
-    <canvas id="chart-area" />
+      <div class="col-md-3" style="padding-top:40px">
+        <h2>I vote for:</h2>
+        <select class="form-control">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+
+        <button type="button" class="btn btn-default" style="margin-top:10px;width:265px">Submit</button>
+      </div>
+      <div class="col-md-9">
+        <div id="canvas-holder">
+          <canvas id="chart-area" />
+        </div>
+      </div>
+    </div>
   </div>
-
-
-
-    <h2>I would Like to Vote For</h2>
-  <div class="btn-group" role="group">
-
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    choose an option
-    <span class="caret"></span>
-  </button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Dropdown link</a></li>
-      <li><a href="#">Dropdown link</a></li>
-    </ul>
-  </div>
-  </div>
-
-     <button type="button" class="btn btn-primary">Submit</button>
-
 
 
   <script>
@@ -69,11 +58,10 @@
       options: {
         responsive: true,
         legend: {
-          position: 'top',
+          position: 'bottom',
         },
         title: {
           display: true,
-          text: 'Chart.js Doughnut Chart'
         },
         animation: {
           animateScale: true,
@@ -87,4 +75,3 @@
       window.myDoughnut = new Chart(ctx, config);
     };
   </script>
-</body>
