@@ -6,11 +6,13 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "alert-node": "^0.2.1",
     "body-parser": "~1.18.2",
     "cookie-session": "^2.0.0-beta.3",
     "debug": "~2.6.9",
     "express": "~4.15.5",
     "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11",
     "hbs": "~4.0.1",
     "mongoose": "^4.13.9",
     "morgan": "~1.9.0",

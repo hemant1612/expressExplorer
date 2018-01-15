@@ -1,15 +1,26 @@
+
 <div class="container-fluid" style="padding:0px 70px 70px 70px;">
   <div class="row" style="background:#eee;padding:50px">
 
     <div class="col-md-3" style="padding-top:40px">
+      <h3>{{ data.topic }}</h3>
       <h2>I vote for:</h2>
-      <select class="form-control">
-      {{# each data.options}}
-      <option>{{this.title}}</option>
-      {{/ each }}
-     </select>
+      <form  action="/vote/{{data.id}}" method="post">
+        <select class="form-control" name="vote">
 
-      <button type="button" class="btn btn-default" style="margin-top:10px;width:265px">submit</button>
+         {{# each data.options}}
+         <option value={{this.title}}>{{this.title}}</option>
+         {{/ each }}
+       </select>
+
+        {{#if voteIn }}
+        <h3>You have voted for this poll!</h3>
+        {{ else if user.username}}
+        <input type="submit" class="btn btn-default" style="margin-top:10px;width:265px" value="Submit">
+        {{ else}}
+        <h3> Please sign In to vote !</h3>
+        {{/ if}}
+      </form>
     </div>
     <div class="col-md-9">
       <div id="canvas-holder">
@@ -19,30 +30,37 @@
   </div>
 </div>
 
-
 <script>
-  var randomScalingFactor = function() {
-    return Math.round(Math.random() * 100);
-  };
+
+
+
+  getRandomColor = () => {
+    var letters = '9BDEC'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * letters.length)];
+    }
+    return color;
+  }
+
+  var data = "{{option}}".split(",");
+  var vote = "{{vote}}".split(",");
+  var colors = [];
+  data.forEach(()=>{
+    colors.push(getRandomColor());
+  })
+  console.log(vote);
+
 
   var config = {
     type: 'doughnut',
     data: {
       datasets: [{
-        data: [
-          randomScalingFactor(),
-          randomScalingFactor()
-        ],
-        backgroundColor: [
-          'rgb(119,125,122)',
-          'rgb(222,222,222)'
-        ],
+        data: vote,
+        backgroundColor: colors,
         label: 'Dataset 1'
       }],
-      labels: [
-        'rgb(119,125,122)',
-        'rgb(222,222,222)'
-      ]
+      labels: data
     },
     options: {
       responsive: true,

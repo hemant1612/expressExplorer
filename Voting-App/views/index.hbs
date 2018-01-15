@@ -2,9 +2,17 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3" style="text-align:center">
 
-      <h3>Select a poll and vote </h3>
-      <h4> or</h4>
-      <h3>Sign in to create your own poll</h3>
+
+{{# if user.username}}
+        <h3> Welcome </h3>
+        <h3> Create your own polls !</h3>
+        <h4>Vote !! </h4>
+
+{{else }}
+      <h3> Sign in to Select a poll and vote </h3>
+      <h4> also </h4>
+      <h3>Create your own polls !</h3>
+  {{/ if}}
 
     </div>
   </div>
@@ -12,13 +20,9 @@
     <div class="row row-list-group">
       <div class="col-sm-12">
         <div class="list-group">
-          <a href="/vote" class="list-group-item">Dapibus ac facilisis in</a>
-          <a href="/vote" class="list-group-item">Dapibus ac facilisis in</a>
-          <a href="/vote" class="list-group-item">Dapibus ac facilisis in</a>
-          <a href="/vote" class="list-group-item">Dapibus ac facilisis in</a>
-          <a href="/vote" class="list-group-item">Dapibus ac facilisis in</a>
-          <a href="/vote" class="list-group-item">Dapibus ac facilisis in</a>
-          <a href="/vote" class="list-group-item">Dapibus ac facilisis in</a>
+          {{# each data }}
+           <a href="/vote/{{id}}" class="list-group-item">{{ topic }}</a>
+          {{/ each }}
         </div>
       </div>
     </div>

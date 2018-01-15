@@ -2,6 +2,19 @@ const express = require('express');
 const Poll = require('../Model/poll-model');
 const router = express.Router();
 
+
+function authChecker(req, res, next) {
+    if (req.user) {
+        next();
+    } else {
+       res.redirect("/");
+    }
+}
+
+router.use(authChecker);
+
+
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   //fetch this data from db
@@ -14,7 +27,8 @@ router.get('/', function(req, res, next) {
 
 router.get('/create', (req, res, next) => {
   //fetch this data from db
-  res.render('polls/createpoll.hbs');
+  console.log(req.user)
+  res.render('polls/createpoll.hbs' , {user : req.user});
 });
 
 router.post('/create', (req, res, next) => {

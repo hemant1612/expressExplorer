@@ -9,11 +9,11 @@ var passport = require('passport');
 var cookieSession = require('cookie-session');
 
 const passportSetup = require('./config/passport-setup');
+const Poll = require('./Model/poll-model');
 var keys = require('./config/key');
 var vote = require('./routes/vote');
 var auth = require('./routes/auth');
 var user = require('./routes/user');
-
 
 
 var app = express();
@@ -45,9 +45,13 @@ mongoose.connect('mongodb://localhost/', { useMongoClient: true } , ()=>{
 app.use('/user',user);
 app.use('/auth',auth);
 app.use('/vote', vote);
+
+
 app.get('/', (req,res)=>{
   //console.log(req.user)
-  res.render('./index.hbs')
+  Poll.find({}, (err,poll)=>{
+    res.render('./index.hbs', {data:poll, user: req.user})
+  })
 })
 
 

@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const pollSchema = new Schema({
   userId : String,
   topic  : String,
-  options : { type : Array , "default" : [] }
+  options : { type : Array , "default" : [] },
+  votedby : { type : Array , "default" : [] }
 });
 
 const Poll = mongoose.model('poll',pollSchema);
