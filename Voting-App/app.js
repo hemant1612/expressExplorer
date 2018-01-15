@@ -54,6 +54,10 @@ app.get('/', (req,res)=>{
   })
 })
 
+app.get('*',(req,res)=>{
+  res.redirect("/");
+})
+
 
 // error handler
 app.listen(3000);
