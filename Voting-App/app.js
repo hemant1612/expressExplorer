@@ -10,7 +10,6 @@ var cookieSession = require('cookie-session');
 
 const passportSetup = require('./config/passport-setup');
 var keys = require('./config/key');
-var index = require('./routes/index');
 var vote = require('./routes/vote');
 var auth = require('./routes/auth');
 var user = require('./routes/user');
@@ -43,11 +42,13 @@ mongoose.connect('mongodb://localhost/', { useMongoClient: true } , ()=>{
   console.log('connected to mongoose');
 });
 
-
 app.use('/user',user);
 app.use('/auth',auth);
 app.use('/vote', vote);
-app.use('/', index);
+app.get('/', (req,res)=>{
+  //console.log(req.user)
+  res.render('./index.hbs')
+})
 
 
 // error handler

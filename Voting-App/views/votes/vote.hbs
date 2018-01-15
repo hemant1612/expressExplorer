@@ -1,68 +1,66 @@
-  <div class="container-fluid" style="padding:0px 70px 70px 70px;">
-    <div class="row" style="background:#eee;padding:50px">
+<div class="container-fluid" style="padding:0px 70px 70px 70px;">
+  <div class="row" style="background:#eee;padding:50px">
 
-      <div class="col-md-3" style="padding-top:40px">
-        <h2>I vote for:</h2>
-        <select class="form-control">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
+    <div class="col-md-3" style="padding-top:40px">
+      <h2>I vote for:</h2>
+      <select class="form-control">
+      {{# each data.options}}
+      <option>{{this.title}}</option>
+      {{/ each }}
+     </select>
 
-        <button type="button" class="btn btn-default" style="margin-top:10px;width:265px">submit</button>
-      </div>
-      <div class="col-md-9">
-        <div id="canvas-holder">
-          <canvas id="chart-area" />
-        </div>
+      <button type="button" class="btn btn-default" style="margin-top:10px;width:265px">submit</button>
+    </div>
+    <div class="col-md-9">
+      <div id="canvas-holder">
+        <canvas id="chart-area" />
       </div>
     </div>
   </div>
+</div>
 
 
-  <script>
-    var randomScalingFactor = function() {
-      return Math.round(Math.random() * 100);
-    };
+<script>
+  var randomScalingFactor = function() {
+    return Math.round(Math.random() * 100);
+  };
 
-    var config = {
-      type: 'doughnut',
-      data: {
-        datasets: [{
-          data: [
-            randomScalingFactor(),
-            randomScalingFactor()
-          ],
-          backgroundColor: [
-            'rgb(119,125,122)',
-            'rgb(222,222,222)'
-          ],
-          label: 'Dataset 1'
-        }],
-        labels: [
+  var config = {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [
+          randomScalingFactor(),
+          randomScalingFactor()
+        ],
+        backgroundColor: [
           'rgb(119,125,122)',
           'rgb(222,222,222)'
-        ]
+        ],
+        label: 'Dataset 1'
+      }],
+      labels: [
+        'rgb(119,125,122)',
+        'rgb(222,222,222)'
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+        position: 'bottom',
       },
-      options: {
-        responsive: true,
-        legend: {
-          position: 'bottom',
-        },
-        title: {
-          display: true,
-        },
-        animation: {
-          animateScale: true,
-          animateRotate: true
-        }
+      title: {
+        display: true,
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
       }
-    };
+    }
+  };
 
-    window.onload = function() {
-      var ctx = document.getElementById("chart-area").getContext("2d");
-      window.myDoughnut = new Chart(ctx, config);
-    };
-  </script>
+  window.onload = function() {
+    var ctx = document.getElementById("chart-area").getContext("2d");
+    window.myDoughnut = new Chart(ctx, config);
+  };
+</script>
