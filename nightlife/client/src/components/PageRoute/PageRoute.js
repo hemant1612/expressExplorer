@@ -1,12 +1,12 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
+import {Home,About} from '../index';
+export const PageRoute = () => (
 
-
-
-const PageRoute = (props) => {
   <div className="content-root">
     <Switch>
-      <Route exact path="/" component={About}/>
+      <Route exact="exact" path="/" component={Home}/>
+      <Route path="/About" component={About}/>
     </Switch>
   </div>
-}
+)

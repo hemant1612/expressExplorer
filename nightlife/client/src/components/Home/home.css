@@ -1,8 +1,13 @@
+body {
+  background: #000;
+}
+
 .root-div {
+  background: black;
   padding: 40px;
 }
 
-.git-link ,.git-link:hover,.git-link:visited,.git-link:active {
+a, a:hover,a:visited,a:active {
   color: #222;
 }
 
