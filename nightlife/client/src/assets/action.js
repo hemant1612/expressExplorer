@@ -51,11 +51,8 @@ export const toggleAndUpdateRsvp = (id, info) => {
 }
 
 const searchRequest = (city, sortBy) => ({type: 'SEARCH_REQUEST', city, sortBy})
-
 const searchSuccess = searchList => ({type: 'SEARCH_SUCCESS', searchList})
-
 const searchFailure = error => ({type: 'SEARCH_FAILURE', error})
-
 export const fetchSearchList = (city, sortBy) => {
   return dispatch => {
     dispatch(searchRequest(city, sortBy));

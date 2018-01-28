@@ -34,14 +34,16 @@ app.use(passport.initialize());
 
 
 app.post('/nightlife', (req,res) => {
-  let {location, sortBy }  = req.body;
+  let { location, sortBy }  = req.body;
   let url = `${apiPath}&location=${location}&sort_by=${sortBy}`;
   fetch(url , {
     headers : {
-      'Authorization' : process.env.API,
+      'Authorization' :'Bearer jicNBqwkO51E2MDLYqYJJLk3I5FExkvIDHy7ut2fSvviAeDepZ3cZpAMILEgsFRvWSSP7Mu7TK24lDxCikKnDtgWJF9LRI8l4da7G3Ksz-egaPwdF4nlEeHKbFVjWnYx',
       'Accept' : 'application/json'
     }
-  }).then(res => res.json())
+  }).then(data => data.json())
+  .then(data => {console.log(data);res.json(data)})
+
 })
 
 
@@ -54,6 +56,9 @@ app.put('/rsvps', verify.verifyUser, (req, res) => {
 	})
 })
 
+app.get('/tt', (req,res) => {
+  res.json({message : 'Hello wolrd'})
+})
 
 
 app.post('/account', (req, res, next) => {

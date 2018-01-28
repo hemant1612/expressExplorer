@@ -1,8 +1,9 @@
 .root-div {
-  padding: 40px;
+  padding-top: 20px;
+  margin-top: 50px;
 }
 
-.git-link ,.git-link:hover,.git-link:visited,.git-link:active {
+.git-link ,.git-link:hover,.git-link:visited,.git-link:active,i {
   color: #222;
 }
 

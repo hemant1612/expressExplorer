@@ -1,8 +1,7 @@
-.navbar {
-  margin:0px;
+.item {
+  font-size: 40px;
 }
 
-.img {
-  width: 20px;
-  height: 20px;
+.menu {
+  color : black;
 }

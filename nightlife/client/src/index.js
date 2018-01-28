@@ -15,7 +15,6 @@ if(localStorage.cityNightAccount){
 
 export const store = createStore(reducer, continousState, applyMiddleware(thunkMiddleware));
 localStorage.cityNightAccount = JSON.stringify(store.getState().account);
-
 ReactDOM.render(
 	<Provider store={store}>
 		<App />

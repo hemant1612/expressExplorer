@@ -8,14 +8,16 @@ import {Nav} from './components/index'
 
 const AppMain = (props) => (
  <div>
- <Nav/>
-  <Router>
-    <PageRoute/>
-  </Router>
- </div>)
+  <Nav/>
+   <Router>
+     <PageRoute/>
+   </Router>
+ </div>
+)
 
 const mapStateToProps = state => ({
   ...state
 })
+
 const App = connect(mapStateToProps, null)(AppMain);
 export default App;

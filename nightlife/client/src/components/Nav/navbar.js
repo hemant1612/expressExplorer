@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import {Button, Dropdown, Menu, Grid, Icon} from 'semantic-ui-react'
-import './navbar.css'
-export default class MenuExampleSizeSmall extends Component {
+import {Menu, Segment, Icon, Button} from 'semantic-ui-react'
+
+export default class MenuExampleInvertedSecondary extends Component {
   state = {
     activeItem: 'home'
   }
@@ -11,21 +11,21 @@ export default class MenuExampleSizeSmall extends Component {
   render() {
     const {activeItem} = this.state
 
-    return (<Menu size='small'>
-      <Menu.Item>
-        <Icon name='asterisk' size='big'/>
-      </Menu.Item>
+    return (<div className="nav-root">
+      <Segment inverted="true">
+        <Menu inverted="inverted" pointing="pointing" secondary="secondary">
+          <Menu.Item>
+            <Icon name='mixcloud' size='big'/>
+          </Menu.Item>
 
-      <Menu.Menu position='right'>
-        <Menu.Item name='home' active={activeItem === ''} onClick={this.handleItemClick}/>
-        <Menu.Item name='about' active={activeItem === ''} onClick={this.handleItemClick}/>
-        <Menu.Item>
-          <Button >Sign Up</Button>
-        </Menu.Item>
-        <Menu.Item>
-          <Button >Logout</Button>
-        </Menu.Item>
-      </Menu.Menu>
-    </Menu>)
+          <Menu.Menu position='right'>
+              <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick}/>
+              <Menu.Item name='about' active={activeItem === 'about'} onClick={this.handleItemClick}/>
+              <Menu.Item name='signIn' active={activeItem === 'signIn'} onClick={this.handleItemClick}/>
+          </Menu.Menu>
+
+        </Menu>
+      </Segment>
+    </div>)
   }
 }

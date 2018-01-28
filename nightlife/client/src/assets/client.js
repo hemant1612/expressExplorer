@@ -6,6 +6,16 @@ export const getSearchList = (location, sortBy) => (
 			'Accept': 'application/json',
 			'Content-Type': 'application/json'
 		}
+	}).then(res=>res.json())
+)
+
+export const test = () => (
+	fetch('/tt', {
+		method : 'get',
+	  headers : {
+			'Accept' : 'application/json',
+			'Content-Type' : 'application/json'
+		}
 	}).then(res => res.json())
 )
 

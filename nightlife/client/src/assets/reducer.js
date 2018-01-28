@@ -9,7 +9,7 @@ let initialState = {
 		},
 		userInfo: {
 			username: '',
-			rsvps: []
+			rsvps: [] 
 		},
 		errorMsg: '',
 	    token: '',
@@ -28,15 +28,15 @@ let initialState = {
 
 const account = (state = initialState.account, action) => {
 	switch(action.type){
-		case 'CHANGE_ACTION_TYPE':
+		case 'CHANGE_ACTION_TYPE': 
 			return {
 				...state,
 				errorMsg: '',
 				submitionStatus: ''
 			}
 		case 'ACCOUNT_REQUEST':
-			return {
-				...state,
+			return { 
+				...state, 
 				userInput: {
 					username: action.username,
 					password: action.password
@@ -46,11 +46,11 @@ const account = (state = initialState.account, action) => {
 				errorMsg: '',
 				actionType: action.actionType,
 				submitionStatus: '',
-				loading: true
+				loading: true 
 			};
 		case 'ACCOUNT_REQUEST_SUCCESS':
 			return {
-				...state,
+				...state, 
 				userInput: {
 					username: '',
 					password: ''
@@ -62,13 +62,13 @@ const account = (state = initialState.account, action) => {
 			};
 		case 'ACCOUNT_REQUEST_FAILURE':
 			return {
-				...state,
+				...state, 
 				errorMsg: action.errorMsg,
 				actionType: action.actionType,
 				submitionStatus: 'error',
 				loading: false
 			};
-		case 'TOGGLE_RSVP':
+		case 'TOGGLE_RSVP': 
 			let userInfo = {...state.userInfo};
 			let todayStr = parseTime(String(new Date()));
 			let id = action.id;
@@ -93,23 +93,23 @@ const account = (state = initialState.account, action) => {
 
 const search = (state = initialState.search, action) => {
 	switch(action.type){
-		case 'SEARCH_REQUEST':
+		case 'SEARCH_REQUEST': 
 			return {
 				...state,
 				city: action.city,
-				sortBy: action.sortBy,
+				sortBy: action.sortBy, 
 				loading: true
 			};
-		case 'SEARCH_SUCCESS':
+		case 'SEARCH_SUCCESS': 
 			return {
-				...state,
+				...state, 
 				searchList: action.searchList,
 				error: '',
 				loading: false
 			};
-		case 'SEARCH_FAILURE':
+		case 'SEARCH_FAILURE': 
 			return {
-				...state,
+				...state, 
 				error: action.error,
 				searchList: [],
 				loading: false
