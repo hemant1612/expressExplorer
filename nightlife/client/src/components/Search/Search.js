@@ -34,7 +34,7 @@ class Search extends React.Component {
 
 
   render() {
-     let {city,sortBy,searchList,error,token,userInfo} = this.props;
+     let { city, sortBy, searchList, error, token, userInfo } = this.props;
      let withSearchResult = !!searchList.length;
      let searchListDisplay = formatSearchList(searchList,userInfo.rsvps);
      return (
@@ -44,7 +44,7 @@ class Search extends React.Component {
             getSearchList={this.props.getSearchList}
             city={city}
             searchList={searchListDisplay}
-            withSearchResult= {withSearchResult}
+            withSearchResult={withSearchResult}
            />
         </div>
           <SearchResult data={searchList} />

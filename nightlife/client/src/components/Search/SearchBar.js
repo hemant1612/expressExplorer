@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input } from 'semantic-ui-react';
-
+import './SearchBar.css';
 
 class SearchBar extends React.Component {
   constructor(props){
@@ -25,7 +25,7 @@ handleChange(e){
     let {withSearchResult, searchList} = this.props;
     return (
       <div>
-        <Input size='large' icon='search' placeholder='Search...'
+        <Input className='search-bar-default' size='small' icon='search' placeholder='Search...'
           onChange = {this.handleChange.bind(this)}/>
       </div>
     )

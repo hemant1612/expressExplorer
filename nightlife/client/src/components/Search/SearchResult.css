@@ -1,4 +1,53 @@
+.result-root{
+  display : flex;
+  justify-content: center;
+  flex-wrap:wrap;
+}
+
+
+.image-main {
+  margin : 50px;
+  display:inline-block;
+  height: 220px;
+}
+
+
 .image-cover {
-  padding : 50px;
-  float: left;
+
+}
+
+
+.image-desc {
+  margin-top: 5px;
+  color : white;
+  text-align: center;
+}
+
+i,rating {
+  color:white;
+}
+
+.image-rsvp{
+  width: 200px;
+  height:200px;
+  background:#111;
+  display:flex;
+  align-items:center;
+
+}
+
+
+@media only screen and (max-width: 722px) {
+     {
+        .image-main {
+          margin : 20px;
+        }
+    }
+}
+
+
+*:active, *:focus {
+  outline: 0;
+  border: none;
+  -moz-outline-style: none
 }
