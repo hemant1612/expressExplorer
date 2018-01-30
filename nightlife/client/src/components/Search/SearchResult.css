@@ -36,16 +36,6 @@ i,rating {
 
 }
 
-
-@media only screen and (max-width: 722px) {
-     {
-        .image-main {
-          margin : 20px;
-        }
-    }
-}
-
-
 *:active, *:focus {
   outline: 0;
   border: none;
