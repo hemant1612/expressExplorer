@@ -9,7 +9,7 @@ const favicon = require('serve-favicon');
 
 const apiPath = "https://api.yelp.com/v3/businesses/search?categories=nightlife";
 
-mongoose.connect("http://localhost:27017");
+mongoose.connect("");
 //mongoose.connect(process.env.MONGODB_URI);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'mongodb connection error'));
@@ -38,8 +38,7 @@ app.post('/nightlife', (req,res) => {
   let url = `${apiPath}&location=${location}&sort_by=${sortBy}`;
   fetch(url , {
     headers : {
-      'Authorization' :'Bearer jicNBqwkO51E2MDLYqYJJLk3I5FExkvIDHy7ut2fSvviAeDepZ3cZpAMILEgsFRvWSSP7Mu7TK24lDxCikKnDtgWJF9LRI8l4da7G3Ksz-egaPwdF4nlEeHKbFVjWnYx',
-      'Accept' : 'application/json'
+      'Authorization' :PROCESS.env.API
     }
   }).then(data => data.json())
   .then(data => {console.log(data);res.json(data)})
@@ -59,6 +58,7 @@ app.put('/rsvps', verify.verifyUser, (req, res) => {
 app.get('/tt', (req,res) => {
   res.json({message : 'Hello wolrd'})
 })
+
 
 
 app.post('/account', (req, res, next) => {
